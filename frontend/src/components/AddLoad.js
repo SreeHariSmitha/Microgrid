@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import connectToMetaMask from "../hooks/MetaMaskConnection";
 
-function AddProducer() {
+function AddLoad() {
   const [tem, setTem] = useState("");
 
   async function connect() {
@@ -9,11 +9,12 @@ function AddProducer() {
     setTem(sendDataContract);
   }
 
-  async function addProducer() {
+  async function addload() {
     let uniqueID = document.getElementById("uniqueID").value;
-    let name = document.getElementById("name").value;
+    let userAddress = document.getElementById("userAddress").value;
+    let energyRequired = document.getElementById("energyRequired").value;
     // Implement your logic for adding load
-    const data = tem.addProducer(uniqueID,name) 
+    const data = tem.addLoad(uniqueID,userAddress,energyRequired) 
 
   }
 
@@ -55,7 +56,7 @@ function AddProducer() {
   return (
     <>
       <div className="welcomeContainer shadow" style={style}>
-        <h1>Add producer</h1>
+        <h1>Add load</h1>
         <br />
         <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
         <br />
@@ -63,8 +64,8 @@ function AddProducer() {
         <br />
         <input type="text" id="energyRequired" placeholder="energyRequired" style={inputbox} />
         <br />
-        <button className="btn" style={myButton} onClick={addProducer}>
-          Add producer
+        <button className="btn" style={myButton} onClick={addload}>
+          Add load
         </button>
         <button className="btn" style={myButton} onClick={connect}>
           Connect MetaMask
@@ -77,4 +78,4 @@ function AddProducer() {
   );
 }
 
-export default AddProducer;
+export default AddLoad;

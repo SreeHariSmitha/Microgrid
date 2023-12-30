@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import connectToMetaMask from "../hooks/MetaMaskConnection";
+// import AddLoad from "./components/AddLoad";
 
-function AddProducer() {
+function AddMicrogrid() {
   const [tem, setTem] = useState("");
 
   async function connect() {
     const { sendDataContract } = await connectToMetaMask();
     setTem(sendDataContract);
+    // console.log(tem)
   }
 
-  async function addProducer() {
-    let uniqueID = document.getElementById("uniqueID").value;
-    let name = document.getElementById("name").value;
-    // Implement your logic for adding load
-    const data = tem.addProducer(uniqueID,name) 
-
+  async function addMicrogrid() {
+    let microGridName = document.getElementById("microGridName").value;
+    const data =tem.createMicroGrid(microGridName)
   }
 
   let style = {
@@ -52,22 +51,18 @@ function AddProducer() {
     margin: "10px", // Added margin for better spacing
   };
 
+
   return (
     <>
       <div className="welcomeContainer shadow" style={style}>
-        <h1>Add producer</h1>
+        <h1>Add Microgrid</h1>
+        <input type="text" id="microGridName" placeholder="MicrogridName" style={inputbox} />
         <br />
-        <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
-        <br />
-        <input type="text" id="userAddress" placeholder="userAddress" style={inputbox} />
-        <br />
-        <input type="text" id="energyRequired" placeholder="energyRequired" style={inputbox} />
-        <br />
-        <button className="btn" style={myButton} onClick={addProducer}>
-          Add producer
+        <button className="btn" style={myButton} onClick={addMicrogrid}>
+          Add microgrid
         </button>
         <button className="btn" style={myButton} onClick={connect}>
-          Connect MetaMask
+          connect MetaMask
         </button>
       </div>
       {/* Uncomment and implement the producer component */}
@@ -77,4 +72,7 @@ function AddProducer() {
   );
 }
 
-export default AddProducer;
+export default AddMicrogrid; // Export the correct component
+
+
+

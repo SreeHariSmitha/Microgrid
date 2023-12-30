@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import connectToMetaMask from "../hooks/MetaMaskConnection";
 
-function AddProducer() {
+function AddGreenEnergy() {
   const [tem, setTem] = useState("");
 
   async function connect() {
@@ -9,12 +9,11 @@ function AddProducer() {
     setTem(sendDataContract);
   }
 
-  async function addProducer() {
+  async function addGreenEnergy() {
     let uniqueID = document.getElementById("uniqueID").value;
-    let name = document.getElementById("name").value;
-    // Implement your logic for adding load
-    const data = tem.addProducer(uniqueID,name) 
-
+    let energyProduction = document.getElementById("energyProduction").value;
+    // Implement your logic for adding green energy
+    const data = tem.addGreenEnergy(uniqueID,energyProduction)
   }
 
   let style = {
@@ -55,16 +54,14 @@ function AddProducer() {
   return (
     <>
       <div className="welcomeContainer shadow" style={style}>
-        <h1>Add producer</h1>
+        <h1>Add Green Energy</h1>
         <br />
         <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
         <br />
-        <input type="text" id="userAddress" placeholder="userAddress" style={inputbox} />
+        <input type="text" id="energyProduction" placeholder="energyProduction" style={inputbox} />
         <br />
-        <input type="text" id="energyRequired" placeholder="energyRequired" style={inputbox} />
-        <br />
-        <button className="btn" style={myButton} onClick={addProducer}>
-          Add producer
+        <button className="btn" style={myButton} onClick={addGreenEnergy}>
+          Add Green Energy
         </button>
         <button className="btn" style={myButton} onClick={connect}>
           Connect MetaMask
@@ -77,4 +74,4 @@ function AddProducer() {
   );
 }
 
-export default AddProducer;
+export default AddGreenEnergy;

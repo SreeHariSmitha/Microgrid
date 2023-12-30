@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import connectToMetaMask from "../hooks/MetaMaskConnection";
+// import AddLoad from "./components/AddLoad";
 
-function AddProducer() {
+function AddGrid() {
   const [tem, setTem] = useState("");
 
   async function connect() {
@@ -9,12 +10,11 @@ function AddProducer() {
     setTem(sendDataContract);
   }
 
-  async function addProducer() {
+  async function addGrid() {
     let uniqueID = document.getElementById("uniqueID").value;
-    let name = document.getElementById("name").value;
-    // Implement your logic for adding load
-    const data = tem.addProducer(uniqueID,name) 
-
+    let maxImport = document.getElementById("maxImport").value;
+    let maxExport = document.getElementById("maxExport").value;
+    const data = tem.PowerGrid(uniqueID,maxImport,maxExport)
   }
 
   let style = {
@@ -52,22 +52,23 @@ function AddProducer() {
     margin: "10px", // Added margin for better spacing
   };
 
+
   return (
     <>
       <div className="welcomeContainer shadow" style={style}>
-        <h1>Add producer</h1>
+        <h1>Add Grid</h1>
         <br />
         <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
         <br />
-        <input type="text" id="userAddress" placeholder="userAddress" style={inputbox} />
+        <input type="text" id="maxImport" placeholder="maxImport" style={inputbox} />
         <br />
-        <input type="text" id="energyRequired" placeholder="energyRequired" style={inputbox} />
+        <input type="text" id="maxExport" placeholder="maxExport" style={inputbox} />
         <br />
-        <button className="btn" style={myButton} onClick={addProducer}>
-          Add producer
+        <button className="btn" style={myButton} onClick={addGrid}>
+          Add load
         </button>
         <button className="btn" style={myButton} onClick={connect}>
-          Connect MetaMask
+          connect MetaMask
         </button>
       </div>
       {/* Uncomment and implement the producer component */}
@@ -77,4 +78,7 @@ function AddProducer() {
   );
 }
 
-export default AddProducer;
+export default AddGrid; // Export the correct component
+
+
+
