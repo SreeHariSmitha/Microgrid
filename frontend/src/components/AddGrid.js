@@ -12,9 +12,16 @@ function AddGrid() {
 
   async function addGrid() {
     let uniqueID = document.getElementById("uniqueID").value;
+<<<<<<< HEAD
     let maxImport = document.getElementById("maxImport").value;
     let maxExport = document.getElementById("maxExport").value;
     const data = tem.PowerGrid(uniqueID,maxImport,maxExport)
+=======
+    let charge = document.getElementById("charge").value;
+    let maxImport = document.getElementById("maxImport").value;
+    let maxExport = document.getElementById("maxExport").value;
+    const data = tem.addPowerGrid(Number(uniqueID),Number(charge),Number(maxImport),Number(maxExport))
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
   }
 
   let style = {
@@ -60,6 +67,11 @@ function AddGrid() {
         <br />
         <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
         <br />
+<<<<<<< HEAD
+=======
+        <input type="text" id="charge" placeholder="charge" style={inputbox} />
+        <br />
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
         <input type="text" id="maxImport" placeholder="maxImport" style={inputbox} />
         <br />
         <input type="text" id="maxExport" placeholder="maxExport" style={inputbox} />
@@ -78,7 +90,11 @@ function AddGrid() {
   );
 }
 
+<<<<<<< HEAD
 export default AddGrid; // Export the correct component
 
 
 
+=======
+export default AddGrid; // Export the correct component
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89

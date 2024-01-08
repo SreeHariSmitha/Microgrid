@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import connectToMetaMask from "../hooks/MetaMaskConnection";
+<<<<<<< HEAD
 // import AddLoad from "./components/AddLoad";
 
 function AddMicrogrid() {
@@ -14,6 +15,39 @@ function AddMicrogrid() {
   async function addMicrogrid() {
     let microGridName = document.getElementById("microGridName").value;
     const data =tem.createMicroGrid(microGridName)
+=======
+import { useNavigate } from "react-router-dom";
+// import AddLoad from "./components/AddLoad";
+
+function AddMicrogrid(props) {
+  const [send, setSend] = useState("");
+  const [get, setGet] = useState("");
+  // const [send, setSend] = useState("");
+
+  const navigate = useNavigate()
+  async function connect() {
+    const { sendDataContract, getDataContract } = await connectToMetaMask();
+    setSend(sendDataContract);
+    setGet(getDataContract);
+  }
+
+  async function addMicrogrid() {
+
+    let microGridName = document.getElementById("microGridName").value;
+    const microGridId = 0;
+    // console.log(microGridId)
+    const data = await send.createMicroGrid(microGridName);
+    // console.log("microgrid NUmber :",Number(microGridId))
+    send.addProducerToMicroGrid(microGridId);
+    if (props.redirectLogIn) {
+      navigate("/ProducerLogin")
+      // console.log("login redir")
+    } {
+      navigate("/ProducerHome")
+      // console.log("home redir")
+
+    }
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
   }
 
   let style = {
@@ -71,8 +105,16 @@ function AddMicrogrid() {
     </>
   );
 }
+<<<<<<< HEAD
 
 export default AddMicrogrid; // Export the correct component
 
 
 
+=======
+AddMicrogrid.defaultProps = {
+  redirectLogIn: false
+}
+
+export default AddMicrogrid; // Export the correct component
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89

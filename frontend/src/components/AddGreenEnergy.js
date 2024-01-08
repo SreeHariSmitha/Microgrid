@@ -11,9 +11,16 @@ function AddGreenEnergy() {
 
   async function addGreenEnergy() {
     let uniqueID = document.getElementById("uniqueID").value;
+<<<<<<< HEAD
     let energyProduction = document.getElementById("energyProduction").value;
     // Implement your logic for adding green energy
     const data = tem.addGreenEnergy(uniqueID,energyProduction)
+=======
+    let charge = document.getElementById("charge").value;
+    let energyProduction = document.getElementById("energyProduction").value;
+    // Implement your logic for adding green energy
+    const data = tem.addGreenEnergy(Number(uniqueID),Number(charge),Number(energyProduction))
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
   }
 
   let style = {
@@ -58,6 +65,11 @@ function AddGreenEnergy() {
         <br />
         <input type="text" id="uniqueID" placeholder="uniqueID" style={inputbox} />
         <br />
+<<<<<<< HEAD
+=======
+        <input type="text" id="charge" placeholder="charge" style={inputbox} />
+        <br />
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
         <input type="text" id="energyProduction" placeholder="energyProduction" style={inputbox} />
         <br />
         <button className="btn" style={myButton} onClick={addGreenEnergy}>
@@ -74,4 +86,8 @@ function AddGreenEnergy() {
   );
 }
 
+<<<<<<< HEAD
 export default AddGreenEnergy;
+=======
+export default AddGreenEnergy;
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89

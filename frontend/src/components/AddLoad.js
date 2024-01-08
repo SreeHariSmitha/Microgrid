@@ -14,7 +14,11 @@ function AddLoad() {
     let userAddress = document.getElementById("userAddress").value;
     let energyRequired = document.getElementById("energyRequired").value;
     // Implement your logic for adding load
+<<<<<<< HEAD
     const data = tem.addLoad(uniqueID,userAddress,energyRequired) 
+=======
+    const data = tem.addLoad(userAddress,Number(energyRequired) ,Number(uniqueID)) 
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
 
   }
 
@@ -70,6 +74,10 @@ function AddLoad() {
         <button className="btn" style={myButton} onClick={connect}>
           Connect MetaMask
         </button>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
       </div>
       {/* Uncomment and implement the producer component */}
       {/* <Producer /> */}
@@ -78,4 +86,8 @@ function AddLoad() {
   );
 }
 
+<<<<<<< HEAD
 export default AddLoad;
+=======
+export default AddLoad;
+>>>>>>> 98329c3741b88c7733dde4c61547cd52c3948c89
